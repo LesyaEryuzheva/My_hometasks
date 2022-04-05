@@ -1,4 +1,4 @@
-class Toys():
+class Toy():
     def __init__(self, toy_type, age, gender):
         self.toy_type = toy_type
         self.age_restrictions = age
@@ -9,11 +9,11 @@ class Toys():
         return description
 
 
-lego = Toys('констуктор', 6, 'мальчик')
+lego = Toy('констуктор', 6, 'мальчик')
 print(lego.get_descriptive_name())
 
 
-class MusicalToys(Toys):
+class MusicalToy(Toy):
     def __init__(self, toy_type, age, gender, battery):
         super().__init__(toy_type, age, gender)
         self.battery = battery
@@ -32,12 +32,12 @@ class MusicalToys(Toys):
         return description
 
 
-synthesizer = MusicalToys('Синтезатор', 4, 'универсальный', 'ААА')
+synthesizer = MusicalToy('Синтезатор', 4, 'универсальный', 'ААА')
 print(synthesizer)
 print(synthesizer.get_descriptive_name())
 
 
-class SoftToys (Toys):
+class SoftToy (Toy):
     def __init__(self, toy_type, age, gender, filler):
         super().__init__(toy_type, age, gender)
         self.filler = filler
@@ -49,26 +49,5 @@ class SoftToys (Toys):
         return description
 
 
-Bear = SoftToys('Мишка', 2, 'девочка', 'натуральный пух')
+Bear = SoftToy('Мишка', 2, 'девочка', 'натуральный пух')
 print(Bear)
-#
-
-# class SingingToys(MusicalToys, SoftToys):
-#     def __init__(self, toy_type, age, gender, battery, filler):
-#         super().__init__(toy_type, age, gender, battery, filler)
-#         self.toy_type = toy_type
-#         self.age_restrictions = age
-#         self.gender_of_the_child = gender
-#         self.battery = battery
-#         self.filler = filler
-#
-#     def __str__(self):
-#         description = f"Если у вас {self.gender_of_the_child} в возрасте {self.age_restrictions} лет " \
-#                       f"обратите внимание на {self.toy_type}, он очень мягкий ведь внутри него {self.filler}."
-#
-#         return description
-#
-#
-# Duck = SingingToys('Утка', 5, 'девочка', 'AA', 'синтепон')
-# print(Duck)
-
