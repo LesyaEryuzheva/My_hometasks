@@ -32,7 +32,7 @@ class MusicalToy(Toy):
         return description
 
 
-synthesizer = MusicalToy('Синтезатор', 4, 'универсальный', 'ААА')
+synthesizer = MusicalToy('синтезатор', 4, 'универсальный', 'ААА')
 print(synthesizer)
 print(synthesizer.get_descriptive_name())
 
@@ -49,5 +49,5 @@ class SoftToy (Toy):
         return description
 
 
-Bear = SoftToy('Мишка', 2, 'девочка', 'натуральный пух')
+Bear = SoftToy('мишка', 2, 'девочка', 'натуральный пух')
 print(Bear)
