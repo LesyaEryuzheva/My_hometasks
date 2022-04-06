@@ -29,18 +29,40 @@ def check_up(func):
     return wrapper
 
 
-@check_up
 def account_login(email, password):
-    with open('users.txt', 'r+') as users_file:
+    with open('users.txt', 'r') as users_file:
         creds = f'{email}:{password}\n'
-
         if creds in users_file:
             print('Welcome! Authorization was successful.')
         else:
-            print('Welcome! Registration was successful.')
-            users_file.write(creds)
+            print('Wrong login or password.')
+    return True
+
+@check_up
+def sign_up(email: str, password: str):
+    with open('users.txt', 'a') as users_file:
+        creds = f'{email}:{password}\n'
+        print('Welcome! Registration was successful.')
+        users_file.write(creds)
+    return True
 
 
-email = input('Enter email:')
-password = input('Enter password:')
-account_login(email, password)
+def menu():
+    while True:
+        print('Menu: \n1 - Log in\n2 - Register')
+
+        user_choice = int(input('Enter 1 or 2: '))
+
+        if user_choice == 1:
+            email = input('Enter email:')
+            password = input('Enter password:')
+            account_login (email, password)
+            break
+
+        elif user_choice == 2:
+            email = input('Enter email:')
+            password = input('Enter password:')
+            sign_up(email, password)
+            break
+menu()
+
