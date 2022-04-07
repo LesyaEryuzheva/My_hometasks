@@ -5,25 +5,29 @@ regex_password = re.compile(r'^(?=.*[0-9].*)(?=.*[a-z].*)(?=.*[A-Z].*)[0-9a-zA-Z
 
 def check_up(func):
     def wrapper(email, password):
+        correct_credential = True
+        ready_to_run_func = False
 
-        correct_credential = False
-        while not correct_credential:
-            correct_credential = True
-            if re.fullmatch(regex_email, email):
-                pass
-            else:
+        while not ready_to_run_func:
+            if not re.fullmatch(regex_email, email):
                 print("Invalid email")
                 correct_credential = False
-
-            if re.fullmatch(regex_password, password):
-                pass
             else:
+                correct_credential = True
+
+            if not re.fullmatch(regex_password, password):
                 print("Invalid password")
                 correct_credential = False
+            else:
+                correct_credential = True
+
 
             if not correct_credential:
                 email = input('Enter email:')
                 password = input('Enter password:')
+                continue
+
+            ready_to_run_func = True
 
         func(email, password)
     return wrapper
@@ -56,7 +60,7 @@ def menu():
         if user_choice == 1:
             email = input('Enter email:')
             password = input('Enter password:')
-            account_login (email, password)
+            account_login(email, password)
             break
 
         elif user_choice == 2:
