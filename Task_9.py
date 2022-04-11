@@ -7,13 +7,12 @@ class Footwear:
     material: str
 
     @staticmethod
-    def get_description():
-        print('There is a large selection of shoes here!')
-
-print(Footwear.get_description())
+    def get_description(season):
+        print(f'New collection of shoes this {season} is already in the store!')
 
 sneakers = Footwear('spring', 38, 'leather')
 print(sneakers)
+Footwear.get_description('spring')
 
 @dataclass
 class Menu:
@@ -25,6 +24,7 @@ class Menu:
 food = Menu('nachos', 'ice-cream', 'garden fresh salad', 'coffee')
 
 print(food)
+
 
 @dataclass
 class Puzzle:
@@ -53,10 +53,11 @@ class Person:
 
 print(Person.retirement_age(63, 'man'))
 
+
 @dataclass
 class Product:
     name: str
-    price: int
+    price: float
 
     @classmethod
     def get_a_discount(cls, name, new_price):
