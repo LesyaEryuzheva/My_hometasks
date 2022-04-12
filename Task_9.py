@@ -60,11 +60,11 @@ class Product:
     price: float
 
     @classmethod
-    def get_a_discount(cls, name, new_price):
+    def get_discount(cls, name, new_price):
         return cls(name, new_price - (new_price * 0.3))
 
 bakery = Product('bread', 5)
-cheese = Product.get_a_discount('brie', 20)
+cheese = Product.get_discount('brie', 20)
 
 print(bakery.price)
 print(cheese.price)
