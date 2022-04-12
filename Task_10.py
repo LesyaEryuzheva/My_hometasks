@@ -17,8 +17,7 @@ def start():
             elif s == '/':
                 print(f'{x} {s} {y} = {x / y}')
             else:
-                if not s in ('+', '-', '*', '/'):
-                    print("Неверный знак операции!")
+                print("Неверный знак операции!")
 
         except ValueError:
             print('Ты не ввел число')
@@ -52,23 +51,28 @@ class Calculator:
 
 
 class Menu:
-    def show_result_1():
+    def __init__(self, choice):
+        self.choice = choice
 
+    @staticmethod
+    def action_choice():
         while True:
-            choice = str(input("Выбери действие (+, -, *, /): "))
+            choice = input("Выбери действие (+, -, *, /): ")
             if choice in '+-*/' and len(choice) == 1:
-                break
+                return choice
             else:
                 print('Выбери знак из предложенных вариантов.')
 
+
+    def selection_processing(self):
         try:
-            if choice == '+':
+            if self.choice == '+':
                 print('Результат: ', num.addition())
-            elif choice == '-':
+            elif self.choice == '-':
                 print('Результат: ', num.subtraction())
-            elif choice == '*':
+            elif self.choice == '*':
                 print('Результат: ', num.multiplication())
-            elif choice == '/':
+            elif self.choice == '/':
                 print('Результат: ', num.division())
 
         except ZeroDivisionError:
@@ -86,6 +90,7 @@ while True:
     else:
         break
 
-Menu.show_result_1()
 
-
+user_choice = Menu.action_choice()
+menu = Menu(user_choice)
+menu.selection_processing()
