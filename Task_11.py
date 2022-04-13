@@ -35,6 +35,5 @@ while True:
 
     except ValueError:
         print('Здесь должны быть только цифры')
-    else:
-        break
+    break
 
