@@ -1,0 +1,222 @@
+1) one to one:
+
+CREATE TABLE person(
+id_person INTEGER PRIMARY KEY,
+name_person TEXT NOT NULL,
+phone_number INTEGER
+);
+
+CREATE TABLE site(
+id_site INTEGER PRIMARY  KEY,
+number_site INTEGER,
+pers_id INTEGER NOT NULL,
+FOREIGN KEY (pers_id) REFERENCES person(id_person)
+);
+
+INSERT INTO person(
+id_person, name_person, phone_number
+) VALUES (1, 'Александр', 123456);
+
+INSERT INTO person(
+id_person, name_person, phone_number
+) VALUES (2, 'Александра', 789654)
+
+INSERT INTO site(
+id_site, number_site, pers_id
+) VALUES (1, 29, 1)
+
+INSERT INTO site(
+id_site, number_site, pers_id
+) VALUES (2, 30, 2)
+
+
+
+one to many:
+
+CREATE TABLE country(
+id_country INTEGER,
+name_country TEXT NOT NULL,
+square INTEGER NOT NULL
+);
+
+ALTER TABLE country ADD PRIMARY KEY(id_country);
+
+CREATE TABLE city(
+id_city INTEGER,
+name_city TEXT NOT NULL,
+population INTEGER,
+id_c INTEGER,
+FOREIGN KEY (id_c) REFERENCES country(id_country)
+);
+
+ALTER TABLE city ADD PRIMARY KEY(id_city);
+
+INSERT INTO country(
+id_country, name_country, square
+) VALUES (1, 'Australia', 7692024)
+
+INSERT INTO country(
+id_country, name_country, square
+) VALUES (2, 'India', 3287263)
+
+INSERT INTO country(
+id_country, name_country, square
+) VALUES (3, 'China', 9596961)
+
+INSERT INTO country(
+id_country, name_country, square
+) VALUES (5, 'France', 643801)
+
+INSERT INTO country(
+id_country, name_country, square
+) VALUES (4, 'USA', 9826675)
+
+INSERT INTO country(
+id_country, name_country, square
+) VALUES (6, 'Turkey', 783356)
+
+INSERT INTO country(
+id_country, name_country, square
+) VALUES (7, 'Norway', 385207)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (1, 'Canberra', 431826, 1)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (2, 'Sydney', 5230330, 1)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (3, 'Bendigo', 100632, 1)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (4, 'New Delhi', 3431336, 2)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (5, 'Mumbai', 15414288, 2)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (6, 'Ottawa', 934243, 3)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (7, 'Toronto', 2731571, 3)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (8, 'Montreal', 1762949 , 3)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (9, 'Marseille', 870731, 5)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (10, 'Paris', 2148327, 5)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (11, 'Nice', 342669, 5)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (12, 'Los Angeles', 3898747, 4)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (13, 'Washington', 689545, 4)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (14, 'Istanbul', 15462452, 6)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (15, 'Bursa', 2994521, 6)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (16, 'Ankara', 5747325, 6)
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (17, 'Oslo', 693494, 7)
+
+INSERT INTO city(
+id_city, name_city, id_c
+) VALUES (18, 'Bergen', 7)
+
+INSERT INTO city(
+id_city, name_city
+) VALUES (19, 'Munich')
+
+INSERT INTO city(
+id_city, name_city, population, id_c
+) VALUES (20, 'Antalya', 1203994, 6)
+
+
+
+many to many:
+
+CREATE TABLE capital(
+id_1 INTEGER NOT NULL,
+FOREIGN KEY (id_1) REFERENCES country(id_country),
+id_2 INTEGER NOT NULL,
+FOREIGN KEY (id_2) REFERENCES city(id_city)
+);
+
+INSERT INTO capital(
+id_1, id_2
+) VALUES (1, 1)
+
+INSERT INTO capital(
+id_1, id_2
+) VALUES (2, 4)
+
+INSERT INTO capital(
+id_1, id_2
+) VALUES (3, 6), (4, 13), (5, 10), (6, 16), (7, 17);
+
+
+
+2)
+
+SELECT  name_country, name_city FROM country JOIN city ON id_country = id_c;
+
+SELECT  name_country, name_city FROM country LEFT OUTER JOIN city ON id_country = id_c;
+
+SELECT  name_country, name_city FROM country RIGHT OUTER JOIN city ON id_country = id_c;
+
+SELECT  name_country, name_city FROM country FULL OUTER JOIN city ON id_country = id_c;
+
+SELECT  name_country, name_city FROM country CROSS JOIN city;
+
+
+
+4)
+
+SELECT COUNT (population) FROM city;
+
+SELECT SUM (square) FROM country;
+
+SELECT AVG (square) FROM country;
+
+SELECT min(square) FROM country;
+
+SELECT max(population) FROM city;
+
+
+
+3*
+
+SELECT name_country, COUNT(id_c) 
+FROM city 
+JOIN country ON id_country = id_c 
+GROUP BY name_country
+ORDER BY COUNT(id_c) DESC
+LIMIT 1
