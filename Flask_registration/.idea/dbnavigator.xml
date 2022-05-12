@@ -27,18 +27,24 @@
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="91f30148-1f92-42a9-889b-072521248dce">
+    <connection id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6">
       <console name="Connection" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" object-ref="schemas/main/tables/person_event" />
+      <object connection-id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" object-ref="schemas/main/tables/persons" />
+      <object connection-id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" object-ref="schemas/main/tables/events" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="91f30148-1f92-42a9-889b-072521248dce" />
+    <connection id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
-    <filter-actions connection-id="91f30148-1f92-42a9-889b-072521248dce" dataset="main.persone" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" dataset="main.persons" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" dataset="main.person_event" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" dataset="main.events" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -69,7 +75,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="91f30148-1f92-42a9-889b-072521248dce" active="true" signed="false">
+      <connection id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" active="true" signed="false">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -84,7 +90,7 @@
           <port value="" />
           <database value="" />
           <files>
-            <file path="D:\TeachMeSkills\Flask_registration\guests.db" schema="main" />
+            <file path="D:\TeachMeSkills\Flask_registration\guest.db" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
