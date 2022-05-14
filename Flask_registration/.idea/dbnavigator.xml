@@ -33,9 +33,9 @@
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
     <open-files>
-      <object connection-id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" object-ref="schemas/main/tables/person_event" />
       <object connection-id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" object-ref="schemas/main/tables/persons" />
       <object connection-id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" object-ref="schemas/main/tables/events" />
+      <object connection-id="ca4a258f-02c3-40f9-9e55-a72e31a7d4e6" object-ref="schemas/main/tables/person_event" />
     </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">

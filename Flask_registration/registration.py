@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -34,6 +34,45 @@ class Event(db.Model):
 
     def __repr__(self):
         return f'<Event {self.name}>'
+
+
+@app.route('/')
+@app.route('/home')
+def index():
+    return render_template('index.html')
+
+@app.route('/events/', methods=['GET'])
+def events():
+    events = Event.query.all()
+    return render_template('events.html', events=events)
+
+@app.route('/events/<int:event_id>', methods=['GET', 'POST'])
+def register_to_event(event_id):
+    event = Event.query.get(event_id)
+    if request.method == 'POST':
+        person = Person.query.filter_by(
+            surname=request.form['surname'],
+            age=request.form['age'],
+            phone_number=request.form['phone_number'],
+        ).first()
+
+        if not person:
+            person = Person(
+                surname=request.form['surname'],
+                age=request.form['age'],
+                phone_number=request.form['phone_number'],
+            )
+            db.session.add(person)
+            db.session.commit()
+
+        if person in event.persons:
+            flash('Are you registered!')
+        else:
+            event.persons.append(person)
+            db.session.add(event)
+            db.session.commit()
+
+    return render_template('register.html', event=event)
 
 
 if __name__ == "__main__":
