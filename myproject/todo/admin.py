@@ -10,5 +10,4 @@ class TodoAdmin(admin.ModelAdmin):
     )
 
 
-
 admin.site.register(Todo, TodoAdmin)
