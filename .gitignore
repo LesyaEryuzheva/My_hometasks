@@ -1,6 +1,7 @@
 myproject/Venv
 myproject/myproject/__pycache__
 myproject/todo/__pycache__
+myproject/todo/migrations/__pycache__
 myproject/db.sqlite3
 Flask_registration/__pycache__
 Flask_registration/Venv
