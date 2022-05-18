@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for event in events %}
+<div>
+    <p><b>Мероприятие:</b> {{ event.name }}</p>
+    {% if event.month %}
+    <p><b>Месяц проведения:</b> {{ event.month }}</p>
+    {% endif%}
+
+    {% if event.persons %}
+        <p>Кто идет:</p>
+        <ul>
+            {% for person in event.persons %}
+            <li>{{ person.surname }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <button type="button"><a href="/events/{{ event.id }}">Войти<a></button>
+    <hr>
+</div>
+
+{% endfor %}
+
+{% endblock %}
