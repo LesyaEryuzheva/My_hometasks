@@ -1,4 +1,10 @@
 myproject/Venv
+myproject/myproject/__pycache__
+myproject/todo/__pycache__
+myproject/db.sqlite3
 Flask_registration/__pycache__
 Flask_registration/Venv
-'Test'
+Flask_registration/.idea
+Flask/__pycache__
+Flask/Venv
+Flask/.idea
