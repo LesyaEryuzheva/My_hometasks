@@ -1,0 +1,11 @@
+{% extends 'todo/base.html' %}
+
+{% block inscription %}Напоминания{% endblock %}
+
+{% block content %}
+  {% for todo in todos%}
+  <h3>Date: {{ todo.date }}</h3>
+  <p>Description: {{ todo.description }}</p>
+
+  {% endfor %}
+{% endblock %}
