@@ -1,0 +1,46 @@
+body {
+    background: #c0c0c0;
+}
+
+
+header {
+    float: left;
+    width: 40%;
+}
+
+
+body img {
+    width: 600px;
+    height: 60vh;
+}
+
+
+header ul {list-style: none}
+
+header ul a {text-decoration: none}
+
+header ul li {
+    color: #191970;
+    margin-top: 150px;
+    font-family: 'Lobster';
+    font-size: 26pt;
+}
+
+
+header ul li:hover, header ul a:hover {
+    color: #808000;
+}
+
+
+main .features h1 {
+    color: #4b0082;
+    font-family: 'Lobster';
+    font-size: 45pt;
+}
+
+
+main .features p {
+    color: #808000;
+    font-family: 'Lobster';
+    font-size: 25pt;
+}
