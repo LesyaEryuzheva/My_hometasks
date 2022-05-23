@@ -5,12 +5,12 @@ body {
 
 header {
     float: left;
-    width: 40%;
+    width: 28%;
 }
 
-
 body img {
-    width: 600px;
+    margin-top: 100px;
+    width: 750px;
     height: 60vh;
 }
 
@@ -43,4 +43,49 @@ main .features p {
     color: #808000;
     font-family: 'Lobster';
     font-size: 25pt;
+}
+
+.alert-success {
+    padding: 5px;
+    width:700px;
+    margin:0 auto;
+    background: #a9a9a9;
+    border: 3px double #808000;
+    margin-top: 30px;
+    margin-left: 700px;
+    font-size: 15pt;
+    text-align: center;
+}
+
+.alert-warning h {
+    color: #4b0082;
+    font-family: 'Lobster';
+    font-size: 35pt;
+    padding: 10%;
+}
+
+.alert-warning {
+    margin-top: 30px;
+}
+
+.futures {
+    margin-top: 30px;
+    color: #4b0082;
+    font-family: 'Lobster';
+    font-size: 15pt;
+}
+
+form {
+    margin-top: 50px;
+    font-size: 15pt;
+}
+
+.btn-success {
+    padding: 10px;
+    width:300px;
+    background: #808000;
+    border: 2px double black;
+    margin-top: 10px;
+    font-size: 15pt;
+    text-align: center;
 }

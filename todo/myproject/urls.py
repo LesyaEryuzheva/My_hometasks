@@ -21,3 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('todo/', include('todo.urls')),
 ]
+
+admin.site.site_header = 'Blog'

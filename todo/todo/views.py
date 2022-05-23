@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Todo
-from .forms import TodoForms
+from .forms import TodoForm
 
 
 def index(request):
@@ -16,19 +16,17 @@ def about(request):
 
 
 def create(request):
-    error = ''
     if request.method == 'POST':
-        form = TodoForms(request.POST)
+        form = TodoForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('todo')
         else:
-            error = 'Ошибка'
+            print(form.errors)
 
-    form = TodoForms()
+    form = TodoForm()
 
     data = {
-        'form': form,
-        'error': error
+        'form': form
     }
     return render(request, 'todo/create.html', data)

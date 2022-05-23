@@ -3,9 +3,14 @@
 {% block inscription %}Напоминания{% endblock %}
 
 {% block content %}
-  {% for todo in todos%}
-  <h3>Date: {{ todo.date }}</h3>
-  <p>Description: {{ todo.description }}</p>
-  {% endfor %}
+  <div class="alert alert-warning">
+    <h>Мои дела</h>
 
+    {% for todo in todos %}
+        <div class="alert alert-success">
+            <h3>{{ todo.date }}</h3>
+            <p>{{ todo.description }}</p>
+        </div>
+    {% endfor %}
+  </div>
 {% endblock %}

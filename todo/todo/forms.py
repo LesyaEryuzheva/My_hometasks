@@ -1,18 +1,18 @@
+from django.forms import ModelForm, Textarea, DateTimeInput
 from .models import Todo
-from django.forms import ModelForm, TextInput, DateTimeInput
 
 
-class TodoForms(ModelForm):
+class TodoForm(ModelForm):
     class Meta:
         model = Todo
         fields = ['date', 'description']
 
         widgets = {
-            "date": DateTimeInput(attrs={
-                'class': "form-control",
-                'type': "datetime-local"
+            'date': DateTimeInput(attrs={
+                'class': 'form-control',
+                'type': 'datetime-local'
             }),
-            "description": TextInput(attrs={
+            'description': Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Описание'
             }),
