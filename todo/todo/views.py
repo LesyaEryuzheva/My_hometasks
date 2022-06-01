@@ -52,7 +52,7 @@ def user_login(request):
         if form.is_valid():
             data = form.cleaned_data
             user = authenticate(username=data['username'], password=data['password'])
-            if user is not None:
+            if user:
                 if user.is_active:
                     login(request, user)
                     return redirect('todo')
