@@ -1,0 +1,28 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>{% block inscription %}{% endblock %}</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'todo/css/todo.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <header>
+    <ul>
+      <a href="{% url 'todo' %}"><li><i class="fa fa-home"></i> Главная</li></a>
+      <a href="{% url 'about' %}"><li><i class="fa fa-list-ul"></i> Список дел</li></a>
+      <a href="{% url 'create' %}"><li><i class="fa fa-plus"></i> Добавить</li></a>
+    </ul>
+  </header>
+  <main>
+  {% block content %}
+  {% endblock %}
+  </main>
+</body>
+</html>

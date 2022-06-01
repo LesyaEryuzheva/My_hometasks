@@ -1,0 +1,24 @@
+{% extends 'todo/base.html' %}
+
+{% block inscription %}Добавить напоминание{% endblock %}
+
+{% block content %}
+  <div class="futures">
+    <h1>Добавить новую запись</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.date }}<br>
+      {{ form.description }}<br>
+       {% if form.errors %}
+       {% for field in form %}
+           {% for error in field.errors %}
+              <div class="alert alert-danger">
+                   <strong>{{ error|escape }}</strong>
+              </div>
+           {% endfor %}
+       {% endfor %}
+    {% endif %}
+      <button class="btn btn-success" type="submit">Добавить</button>
+    </form>
+  </div>
+{% endblock %}

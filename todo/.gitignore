@@ -1,0 +1,4 @@
+Venv
+myproject/__pycache__
+todo/__pycache__
+db.sqlite3

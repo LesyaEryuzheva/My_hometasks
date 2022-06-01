@@ -1,0 +1,13 @@
+{% extends 'todo/base.html' %}
+
+{% block inscription %}Вход{% endblock %}
+
+{% block content %}
+    <h1>Введите свой логин и пароль</h1>
+    <p>Если вы еще не зарегистрировались то <a href="{% url 'register' %}">регистрация тут</a></p>
+    <form action='' method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Войти"></p>
+    </form>
+{% endblock %}
