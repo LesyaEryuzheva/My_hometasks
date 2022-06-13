@@ -1,6 +1,6 @@
 from django import forms
-from .models import *
-from django.contrib.admin.widgets import FilteredSelectMultiple
+
+from .models import Brand, CarModel
 
 
 class BrandForm(forms.Form):

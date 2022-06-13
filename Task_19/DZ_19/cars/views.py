@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 
-from .forms import *
+from .forms import BrandForm, CarModelForm, EngineForm
+from .models import Brand, CarModel, Engine
 
 
 def create_brand(request):
@@ -11,8 +12,6 @@ def create_brand(request):
                 name=form.cleaned_data['name'],
                 country=form.cleaned_data['country']
             )
-        else:
-            print(form.__dict__)
     form = BrandForm()
     context = {'form': form}
     return render(request, 'cars/catalog.html', context)
@@ -27,8 +26,6 @@ def create_car_model(request):
                 car_body=form.cleaned_data['car_body'],
                 brand=form.cleaned_data['brand'],
             )
-        else:
-            print(form.__dict__)
     form = CarModelForm()
     context = {'form': form}
     return render(request, 'cars/car_model.html', context)
@@ -45,8 +42,6 @@ def create_engine(request):
             car_models = form.cleaned_data['car_model']
             for car_model in car_models:
                 engine.car_model.add(car_model)
-        else:
-            print(form.__dict__)
     form = EngineForm()
     context = {'form': form}
     return render(request, 'cars/engine.html', context)
