@@ -1,6 +1,6 @@
+from django.contrib.auth.models import User
 from django.db import models
 from clothing_store.models import Clothing
-from django.contrib.auth.models import User
 
 
 class Order(models.Model):

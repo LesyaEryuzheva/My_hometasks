@@ -1,6 +1,4 @@
 from django.contrib import admin
-
-
 from .models import Category, Clothing
 
 
@@ -19,8 +17,8 @@ class ClothingAdmin(admin.ModelAdmin):
         'created',
         'updated',
     )
-    list_filter = ['available', 'created', 'updated']
-    list_editable = ['price', 'stock', 'available']
+    list_filter = ('available', 'created', 'updated')
+    list_editable = ('price', 'stock', 'available')
     search_fields = ['name']
 
 
