@@ -10,7 +10,7 @@ class TaskAdmin(admin.ModelAdmin):
         'date',
         'status',
     )
-    list_editable = ['status']
+    list_editable = ('status',)
 
 
 admin.site.register(Task, TaskAdmin)
