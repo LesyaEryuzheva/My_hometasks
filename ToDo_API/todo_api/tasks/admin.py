@@ -7,6 +7,7 @@ class TaskAdmin(admin.ModelAdmin):
     list_display = (
         'title',
         'user',
+        'date',
         'status',
     )
     list_editable = ['status']

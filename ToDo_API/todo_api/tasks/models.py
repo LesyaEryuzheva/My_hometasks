@@ -2,20 +2,19 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-YEAR_IN_SCHOOL_CHOICES = (
-    ('TO_DO', 'to-do'),
+TASK_STATUS_CHOICES = (
+    ('TO_DO', 'To do'),
     ('IN_PROGRESS', 'In progress'),
-    ('COMPLETED', 'completed'),
+    ('COMPLETED', 'Completed'),
 )
 
 
 class Task(models.Model):
     title = models.CharField(max_length=150)
     description = models.TextField()
-    status = models.CharField(max_length=25, choices=YEAR_IN_SCHOOL_CHOICES, default='TO_DO')
-    creation_date = models.DateTimeField(auto_now_add=True, blank=True)
-    update_date = models.DateTimeField(auto_now=True, blank=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name='tasks')
+    status = models.CharField(max_length=25, choices=TASK_STATUS_CHOICES, default='TO_DO')
+    date = models.DateField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tasks')
 
     def __str__(self):
         return self.title

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from datetime import timedelta
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'rest_framework_simplejwt',
+    'django_filters',
+    'rest_framework_swagger',
     'tasks',
 ]
 
@@ -67,6 +70,9 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'libraries': {
+                'staticfiles': 'django.templatetags.static',
+            }
         },
     },
 ]
@@ -109,6 +115,12 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
+    ),
+    'DEFAULT_SCHEMA_CLASS': (
+        'rest_framework.schemas.coreapi.AutoSchema'
+    ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
     ),
 }
 

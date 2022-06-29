@@ -14,17 +14,25 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.urls import re_path as url
 from django.urls import path, include
+from rest_framework_swagger.views import get_swagger_view
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
 )
 
+schema_view = get_swagger_view(title='Pastebin API')
+
+API_PATTERNS = [
+    path('', include('tasks.urls')),
+]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('tasks.urls')),
+    path('api/', include(API_PATTERNS)),
     path('api/auth/', include('rest_framework.urls')),
     path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    url('', schema_view),
 ]
